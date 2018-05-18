@@ -1,0 +1,60 @@
+{
+  "_from": "datatables.net-fixedcolumns-bs",
+  "_id": "datatables.net-fixedcolumns-bs@3.2.4",
+  "_inBundle": false,
+  "_integrity": "sha1-SPBd27gQUH+La93ItOmu4oCf80I=",
+  "_location": "/datatables.net-fixedcolumns-bs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "datatables.net-fixedcolumns-bs",
+    "name": "datatables.net-fixedcolumns-bs",
+    "escapedName": "datatables.net-fixedcolumns-bs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-fixedcolumns-bs/-/datatables.net-fixedcolumns-bs-3.2.4.tgz",
+  "_shasum": "48f05ddbb810507f8b6bddc8b4e9aee2809ff342",
+  "_spec": "datatables.net-fixedcolumns-bs",
+  "_where": "C:\\Users\\icm\\PhpstormProjects\\attestation",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net-bs": "^1.10.15",
+    "datatables.net-fixedcolumns": "3.2.4",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "FixedColumns for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
+  "files": [
+    "css/**/*.css"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "fixed columns",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "name": "datatables.net-fixedcolumns-bs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-FixedColumns-Bootstrap.git"
+  },
+  "style": "css/fixedColumns.bootstrap.css",
+  "version": "3.2.4"
+}

@@ -1,0 +1,60 @@
+{
+  "_from": "datatables.net-rowreorder-bs",
+  "_id": "datatables.net-rowreorder-bs@1.2.3",
+  "_inBundle": false,
+  "_integrity": "sha1-J6FIy7ox/J6vQk6z3a5pfuqxHpQ=",
+  "_location": "/datatables.net-rowreorder-bs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "datatables.net-rowreorder-bs",
+    "name": "datatables.net-rowreorder-bs",
+    "escapedName": "datatables.net-rowreorder-bs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-rowreorder-bs/-/datatables.net-rowreorder-bs-1.2.3.tgz",
+  "_shasum": "27a148cbba31fc9eaf424eb3ddae697eeab11e94",
+  "_spec": "datatables.net-rowreorder-bs",
+  "_where": "C:\\Users\\icm\\PhpstormProjects\\attestation",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net-bs": "^1.10.15",
+    "datatables.net-rowreorder": "1.2.3",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "RowReorder for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
+  "files": [
+    "css/**/*.css"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "row reordering",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "name": "datatables.net-rowreorder-bs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-RowReorder-Bootstrap.git"
+  },
+  "style": "css/rowReorder.bootstrap.css",
+  "version": "1.2.3"
+}

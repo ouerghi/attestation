@@ -1,0 +1,60 @@
+{
+  "_from": "datatables.net-scroller-bs",
+  "_id": "datatables.net-scroller-bs@1.4.4",
+  "_inBundle": false,
+  "_integrity": "sha1-iExT6WRULC0ZRh7+U20eh9A89oA=",
+  "_location": "/datatables.net-scroller-bs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "datatables.net-scroller-bs",
+    "name": "datatables.net-scroller-bs",
+    "escapedName": "datatables.net-scroller-bs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-scroller-bs/-/datatables.net-scroller-bs-1.4.4.tgz",
+  "_shasum": "884c53e964542c2d19461efe536d1e87d03cf680",
+  "_spec": "datatables.net-scroller-bs",
+  "_where": "C:\\Users\\icm\\PhpstormProjects\\attestation",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net-bs": "^1.10.15",
+    "datatables.net-scroller": "1.4.4",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "Scroller for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
+  "files": [
+    "css/**/*.css"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "virtual scrolling",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "name": "datatables.net-scroller-bs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-Scroller-Bootstrap.git"
+  },
+  "style": "css/scroller.bootstrap.css",
+  "version": "1.4.4"
+}

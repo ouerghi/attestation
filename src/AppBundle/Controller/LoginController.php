@@ -1,10 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Safa
- * Date: 20/03/2018
- * Time: 14:15
- */
+//Login : ouerghimahdi@gmail.com
+//Mot de passe : bVNnZEcP5ymQ  admin
+//Login : ouerghimahdi1@gmail.com
+//Mot de passe : kN4qcRykZMdK user
 
 namespace AppBundle\Controller;
 

@@ -3,7 +3,10 @@
     <words>
       <w>adresse</w>
       <w>ajouter</w>
+      <w>datatable</w>
+      <w>datatables</w>
       <w>employé</w>
+      <w>employés</w>
       <w>enregistrer</w>
       <w>matricule</w>
       <w>maxlength</w>
@@ -11,6 +14,7 @@
       <w>montant</w>
       <w>nullable</w>
       <w>revenu</w>
+      <w>sgdatatables</w>
       <w>supprimer</w>
       <w>utilisateur</w>
     </words>

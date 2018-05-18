@@ -1,0 +1,34 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/r-2.2.1/datatables.min.css"/>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <div class="container-fluid">
+        <div class="row">
+               <div class="col-md-offset-1 col-md-10">
+                  <div class="row">
+                      <h2>Liste des Employés</h2>
+                          <a href="{{ path('personnel') }}" rel="tooltip" title="Ajouter employé" class="btn btn-success pull-right" role="button">
+                              <span class="glyphicon glyphicon-user"></span> Ajouter un employé
+                          </a>
+                  </div>
+                   <hr>
+                   {{ sg_datatables_render(datatable) }}
+               </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment-with-locales.min.js"></script>
+    <script href="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js" charset="UTF-8"></script>
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>#}
+    <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.1/release/featherlight.min.js"></script>
+    <script src="{{ asset('bundles/sgdatatables/js/pipeline.js') }}"></script>
+    <script>
+        $('#sg-datatables-employee_datatable').addClass('table');
+    </script>
+{% endblock %}

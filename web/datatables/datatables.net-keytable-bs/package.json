@@ -1,0 +1,62 @@
+{
+  "_from": "datatables.net-keytable-bs",
+  "_id": "datatables.net-keytable-bs@2.3.2",
+  "_inBundle": false,
+  "_integrity": "sha1-Wy2aWJpvQoPsQnrHPQ9l9Dg/j+A=",
+  "_location": "/datatables.net-keytable-bs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "datatables.net-keytable-bs",
+    "name": "datatables.net-keytable-bs",
+    "escapedName": "datatables.net-keytable-bs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-keytable-bs/-/datatables.net-keytable-bs-2.3.2.tgz",
+  "_shasum": "5b2d9a589a6f4283ec427ac73d0f65f4383f8fe0",
+  "_spec": "datatables.net-keytable-bs",
+  "_where": "C:\\Users\\icm\\PhpstormProjects\\attestation",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net-bs": "^1.10.15",
+    "datatables.net-keytable": "2.3.2",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "KeyTable for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
+  "files": [
+    "css/**/*.css"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "spreadsheet",
+    "excel",
+    "keyboard",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "name": "datatables.net-keytable-bs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-KeyTable-Bootstrap.git"
+  },
+  "style": "css/keyTable.bootstrap.css",
+  "version": "2.3.2"
+}
