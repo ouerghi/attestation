@@ -6,6 +6,8 @@
       <w>employé</w>
       <w>enregistrer</w>
       <w>matricule</w>
+      <w>maxlength</w>
+      <w>minlength</w>
       <w>montant</w>
       <w>nullable</w>
       <w>revenu</w>

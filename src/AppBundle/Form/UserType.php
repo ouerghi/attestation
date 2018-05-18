@@ -22,12 +22,36 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, array(
-            	'label' => 'Login'
+            	'label' => 'Login',
+	            'attr' => array(
+	            	'placeholder' => 'Login'
+	            )
             ))
-	        ->add('email', EmailType::class, ['attr' => ['placeholder' => 'Email de l\'utilisateur ']])
+	        ->add('email', EmailType::class, [
+	        	'attr' => [
+	        		'placeholder' => 'Email de l\'utilisateur ',
+			        'data-error' => 'Le mail doit etre une adresse valide'
+			        ]
+	        ])
             ->remove('password')
-	        ->add('cin')
-	        ->add('matricule')
+	        ->add('cin', TextType::class, array(
+	        	'attr' => array(
+	        		'placeholder' => 'Numéro de carte d\'identité',
+	        		'maxlength' => 8,
+			        'minlength' => 8,
+			        'pattern' => '^[0-9]*$' ,
+			        'data-error' => 'numéro cin doit être de 8 caractères et ne contient que des nombres'
+		        )
+	        ))
+	        ->add('matricule', TextType::class, array(
+		        'attr' => array(
+		        	'placeholder' => 'Matricule',
+			        'maxlength' => 8,
+			        'minlength' => 8,
+			        'pattern' => '^[0-9a-zA-Z]*$' ,
+			        'data-error' => 'numéro matricule doit être de 8 caractères et ne contient que des nombres ou des lettres'
+		        )
+	        ))
 	        ->add('name', TextType::class, ['label' => 'Nom', 'attr' => ['placeholder'=> 'Nom de l\'employé' ]])
 	        ->add('lastName', TextType::class, ['label' => 'Prénom', 'attr' => ['placeholder'=> 'Prénom de l\'employé' ]])
 	        ->add('nationality', TextType::class, ['label' => 'Nationalité', 'attr' => ['placeholder'=> 'Nationalité de l\'employé' ]])
@@ -39,10 +63,30 @@ class UserType extends AbstractType
 			        'Marié' => 'marie',
 		        ],
 	        ))
-	        ->add('workingDuration', IntegerType::class, ['label' => 'Durée d\'heure  par année'])
-	        ->add('mission', TextType::class)
-	        ->add('numberOfChildren', IntegerType::class, ['label' => 'Nombres d\'enfant'])
-	        ->add('privilege', IntegerType::class, ['label' => 'Privilége'])
+	        ->add('workingDuration', IntegerType::class, [
+	        	'label' => 'Durée d\'heure  par année',
+		       'attr' => array(
+			       'placeholder' => 'Durée d\'heure  par année'
+		       )
+	        ])
+	        ->add('mission', TextType::class, array(
+	        	'attr' => array(
+	        		'placeholder' => 'Mission de l\'utilisateur'
+		        )
+	        ))
+	        ->add('numberOfChildren', IntegerType::class, [
+	        	'label' => 'Nombres d\'enfant',
+		       'attr' => array(
+			       'placeholder' => 'Nombres d\'enfant'
+		       )
+	        ])
+	        ->add('privilege', IntegerType::class,
+		        [
+	        	'label' => 'Priviléges',
+			        'attr' => array(
+				        'placeholder' => 'Priviléges'
+			        )
+		        ])
             ->add('roles', ChoiceType::class, array(
                 'multiple' => true,
                 'expanded' => true,
@@ -54,7 +98,10 @@ class UserType extends AbstractType
 	        ->add('revenuImposable', MoneyType::class, array(
 	        	'label' => 'Revenu Imposable',
 		        'divisor' => 100,
-		        'currency' => 'TND'
+		        'currency' => 'TND',
+		        'attr' => array(
+		        	'placeholder' => 'Revenu Imposable'
+		        )
 	        ))
             ->add('grade',EntityType::class,[
                 'class' => 'AppBundle:Grade',

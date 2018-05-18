@@ -3,68 +3,209 @@
 
 {% block body %}
 
-    <div class="container">
+    <div class="container ">
         <h1 class="">Ajout Utilisateur</h1>
-        {{ form_start(form) }}
+        {{ form_start(form, { 'attr' : { 'data-toggle' : 'validator', 'role' : 'form' }}) }}
         <div class="row">
-            <div class="col-md-3 ">
-                {{ form_row(form.name) }}
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.name) }}
+                            {{ form_errors(form.name) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                {{ form_widget(form.name) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.lastName) }}
+                            {{ form_errors(form.lastName) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                {{ form_widget(form.lastName) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.username) }}
+                            {{ form_errors(form.username) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                {{ form_widget(form.username) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.cin) }}
+                            {{ form_errors(form.cin) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                {{ form_widget(form.cin) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.matricule) }}
+                            {{ form_errors(form.matricule) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-folder"></i></span>
+                                {{ form_widget(form.matricule) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.nationality) }}
+                            {{ form_errors(form.nationality) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+                                {{ form_widget(form.nationality) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.roles) }}
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                {{ form_row(form.lastName) }}
-            </div>
-            <div class="col-md-3">
-                {{ form_row(form.email) }}
-            </div>
-            <div class="col-md-3">
-                {{ form_row(form.username) }}
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.address) }}
+                            {{ form_errors(form.address) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-thin"></i></span>
+                                {{ form_widget(form.address) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.status) }}
+                            {{ form_errors(form.status) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user-md"></i></span>
+                                {{ form_widget(form.status) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.grade) }}
+                            {{ form_errors(form.grade) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-arrow-circle-o-up"></i></span>
+                                {{ form_widget(form.grade) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.workingDuration) }}
+                            {{ form_errors(form.workingDuration) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                {{ form_widget(form.workingDuration) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.numberOfChildren) }}
+                            {{ form_errors(form.numberOfChildren) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                                {{ form_widget(form.numberOfChildren) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.mission) }}
+                            {{ form_errors(form.mission) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-hand-o-up"></i></span>
+                                {{ form_widget(form.mission) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.revenuImposable) }}
+                            {{ form_errors(form.revenuImposable) }}
+                            {{ form_widget(form.revenuImposable) }}
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div> <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.privilege) }}
+                            {{ form_errors(form.privilege) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-header"></i></span>
+                                {{ form_widget(form.privilege) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 ">
-                {{ form_row(form.cin) }}
-            </div>
-            <div class="col-md-4">
-                {{ form_row(form.matricule) }}
-            </div>
-            <div class="col-md-4">
-                {{ form_row(form.nationality) }}
-            </div>
+        <div class="form-group">
+            <button type="submit"  class="btn btn-primary btn">Enregistrer</button>
         </div>
-        <div class="row">
-            <div class="col-md-4 ">
-                {{ form_row(form.address) }}
-            </div>
-            <div class="col-md-4">
-                {{ form_row(form.status) }}
-            </div>
-            <div class="col-md-4">
-                {{ form_row(form.grade) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 ">
-                {{ form_row(form.workingDuration) }}
-            </div>
-            <div class="col-md-4">
-                {{ form_row(form.numberOfChildren) }}
-            </div>
-            <div class="col-md-4">
-                {{ form_row(form.mission) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                {{ form_row(form.roles) }}
-            </div>
-        </div>  <div class="row">
-            <div class="col-md-4">
-                {{ form_row(form.revenuImposable) }}
-            </div> <div class="col-md-4">
-                {{ form_row(form.privilege) }}
-            </div>
-        </div>
-        <div class="form-group"><button type="submit"  class="btn btn-primary btn">Enregistrer</button></div>
         {{ form_end(form) }}
 
     </div>

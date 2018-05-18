@@ -7,6 +7,7 @@ use AppBundle\Entity\User;
 use AppBundle\Form\EmployeeType;
 use AppBundle\Entity\Employee;
 use AppBundle\Form\UserType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,7 @@ class RegistreController extends Controller
 	 * @param Request $request
 	 * @param UserPasswordEncoderInterface $password
 	 * @param \Swift_Mailer $mailer
-	 *
+	 * @Security("has_role('ROLE_ADMIN')")
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
     public function register( Request $request, UserPasswordEncoderInterface $password, \Swift_Mailer $mailer)
@@ -103,7 +104,7 @@ class RegistreController extends Controller
 
     /**
      * @Route("/list-users", name="users")
-     *
+     *@Security("has_role('ROLE_ADMIN')")
      */
     public function listAction()
     {

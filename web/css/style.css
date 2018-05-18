@@ -259,7 +259,6 @@ ul.top-menu > li > .logout {
     height:17px;
     width:17px;
     display:inline-block;
-    background: url("../img/nav-expand.png") no-repeat top;
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -268,7 +267,7 @@ ul.top-menu > li > .logout {
     top:15px;
 }
 .active .dcjq-icon {
-    background: url("../img/nav-expand.png") no-repeat bottom;
+    /*background: url("../img/nav-expand.png") no-repeat bottom;*/
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -513,7 +512,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     /* Safari and Chrome */
     .dropdown-menu.extended  {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
-    };
+    }
     }
 
 .dropdown-menu.extended li p {
@@ -698,7 +697,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .log-arrow-up {
-    background: url("../img/arrow-up.png") no-repeat;
+    /*background: url("../img/arrow-up.png") no-repeat;*/
     width: 20px;
     height: 11px;
     position: absolute;
@@ -1322,7 +1321,7 @@ PANELS CONFIGURATIONS
 #spotify {
 	background: url(../img/lorde.jpg) no-repeat center top;
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 220px;
 	width: 100%;
@@ -1366,7 +1365,7 @@ PANELS CONFIGURATIONS
 #blog-bg {
 	background: url(../img/blog-bg.jpg) no-repeat center top;
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 150px;
 	width: 100%;
@@ -1491,7 +1490,7 @@ PANELS CONFIGURATIONS
 #profile-01 {
 	background: url(../img/profile-01.jpg) no-repeat center top;
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 150px;
 	width: 100%;
@@ -1539,7 +1538,7 @@ PANELS CONFIGURATIONS
 #profile-02 {
 	background: url(../img/profile-02.jpg) no-repeat center top;
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 200px;
 	width: 100%;
@@ -2104,7 +2103,7 @@ label {
     /* Safari and Chrome */
     .panel-footer.revenue-foot {
         margin-bottom: -4px;
-    };
+    }
     }
 
 
@@ -2243,7 +2242,7 @@ label {
     min-height: 900px;
 }
 
-label[for:user_username]{
-    color: #000;
-}
+/*label[for:user_username]{*/
+    /*color: #000;*/
+/*}*/
 

@@ -67,9 +67,11 @@
                     <h5 class="centered">TRANSTU</h5>
 
                     <li class="mt">
+                        {% if is_granted('ROLE_ADMIN') %}
                         <span><a href="{{ path('register') }}">ajout user</a> </span>
+                            <span><a href="{{ path('users') }}">liste users</a> </span>
+                        {% endif %}
                         <span><a href="{{ path('personnel') }}">ajout personnel</a> </span>
-                        <span><a href="{{ path('users') }}">liste users</a> </span>
                     </li>
                 </ul>
             </div>
@@ -109,6 +111,7 @@
             <!-- js placed at the end of the document so the pages load faster -->
             <script src="{{ asset('js/jquery.js') }}"></script>
             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/validator.min.js') }}"></script>
             <script src="{{ asset('js/jquery-ui-1.9.2.custom.min.js') }}"></script>
             <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
             <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
