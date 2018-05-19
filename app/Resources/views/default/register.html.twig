@@ -97,7 +97,31 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.service) }}
+                            {{ form_errors(form.service) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-arrow-circle-o-up"></i></span>
+                                {{ form_widget(form.service) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            {{ form_label(form.typeAttestation) }}
+                            {{ form_errors(form.typeAttestation) }}
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-arrow-circle-o-up"></i></span>
+                                {{ form_widget(form.typeAttestation) }}
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         {{ form_row(form.roles) }}
                     </div>
                 </div>

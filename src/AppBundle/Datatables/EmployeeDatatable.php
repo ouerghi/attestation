@@ -44,10 +44,11 @@ class EmployeeDatatable extends AbstractDatatable
         $this->options->set(array(
 //            'individual_filtering' => true,
 //            'individual_filtering_position' => 'head',
-            'order_cells_top' => true,
+               'order_cells_top' => true,
         ));
 
         $this->features->set(array(
+
         ));
 
         $this->columnBuilder
@@ -66,6 +67,9 @@ class EmployeeDatatable extends AbstractDatatable
             ->add('cin', Column::class, array(
                 'title' => 'Cin',
                 ))
+	        ->add('service.name', Column::class, array(
+		        'title' => 'service',
+	        ))
 
             ->add('dateCreation', DateTimeColumn::class, array(
                 'title' => 'DateCreation',

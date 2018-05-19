@@ -108,6 +108,22 @@ class UserType extends AbstractType
                 'choice_label' => 'libelleG',
                 'placeholder' => 'Choisissez un grade'
             ])
+	        ->add('typeAttestation', EntityType::class, array(
+	        	'class' => 'AppBundle\Entity\TypeAttestation',
+		        'choice_label' => 'name',
+		        'multiple' => false,
+		        'attr' => array(
+		        	'placeholder' => 'Choisir un type d\'attestation'
+		        )
+	        ))
+	        ->add('service', EntityType::class, array(
+		        'class' => 'AppBundle\Entity\Service',
+		        'choice_label' => 'name',
+		        'multiple' => false,
+		        'attr' => array(
+			        'placeholder' => 'Choisir un service'
+		        )
+	        ))
         ;
     }
 

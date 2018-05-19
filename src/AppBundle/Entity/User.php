@@ -34,6 +34,25 @@ class User extends Employee implements UserInterface, \Serializable
     private $username;
 
 	/**
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeAttestation", cascade={"ALL"})
+	 */
+    private $typeAttestation;
+
+	/**
+	 * @return mixed
+	 */
+	public function getTypeAttestation() {
+		return $this->typeAttestation;
+	}
+
+	/**
+	 * @param mixed $typeAttestation
+	 */
+	public function setTypeAttestation( $typeAttestation ) {
+		$this->typeAttestation = $typeAttestation;
+	}
+
+	/**
 	 * @var string
 	 *
 	 * @ORM\Column(name="email", type="string", length=255, unique=true)

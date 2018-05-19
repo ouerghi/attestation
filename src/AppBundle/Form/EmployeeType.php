@@ -19,6 +19,7 @@ class EmployeeType extends AbstractType
 	        ->remove('roles')
 	        ->remove('username')
 	        ->remove('email')
+	        ->remove('typeAttestation')
         ;
 
     }

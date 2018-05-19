@@ -41,3 +41,7 @@ services:
         public: true
         autowire: true
         autoconfigure: false
+
+    redirect.after.login:
+            class: AppBundle\Listener\AfterLoginRedirection
+            arguments: ['@router']

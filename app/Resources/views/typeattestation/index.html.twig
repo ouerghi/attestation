@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Typeattestations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Code</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeAttestation in typeAttestations %}
+            <tr>
+                <td><a href="{{ path('typeattestation_show', { 'id': typeAttestation.id }) }}">{{ typeAttestation.id }}</a></td>
+                <td>{{ typeAttestation.name }}</td>
+                <td>{{ typeAttestation.description }}</td>
+                <td>{{ typeAttestation.code }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typeattestation_show', { 'id': typeAttestation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typeattestation_edit', { 'id': typeAttestation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typeattestation_new') }}">Create a new typeAttestation</a>
+        </li>
+    </ul>
+{% endblock %}

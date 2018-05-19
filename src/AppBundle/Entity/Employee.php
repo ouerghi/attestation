@@ -44,6 +44,25 @@ use Doctrine\ORM\Mapping\InheritanceType;
 		$this->user = $user;
 	}
 
+	 /**
+	  * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Service", cascade={"ALL"})
+	  */
+	 protected $service;
+
+	 /**
+	  * @return mixed
+	  */
+	 public function getService() {
+		 return $this->service;
+	 }
+
+	 /**
+	  * @param mixed $service
+	  */
+	 public function setService( $service ) {
+		 $this->service = $service;
+	 }
+
 	/**
 	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Grade")
 	 * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")

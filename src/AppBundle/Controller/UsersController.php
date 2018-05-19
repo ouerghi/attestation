@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Datatables\EmployeeDatatable;
 use AppBundle\Entity\Employee;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -28,6 +27,7 @@ class UsersController extends Controller
 		// Get your Datatable ...
 		$datatable = $this->get('app.datatable.employee');
 		$datatable->buildDatatable();
+
 
 		// or use the DatatableFactory
 		/** @var DatatableInterface $datatable */
