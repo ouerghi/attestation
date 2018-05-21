@@ -23,7 +23,7 @@
                 <tr>
                 <tr>
                     <td>Email</td>
-                    <td><a href="{{ user.email }}">{{ user.email }} {{ dump(employee) }}</a></td>
+                    <td><a href="{{ user.email }}">{{ user.email }} </a></td>
                 </tr>
                 </tbody>
             </table>
@@ -32,18 +32,31 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="row">
                 <div id="certificate" class="text-center">
-                    <h1>{{ user.typeAttestation.name }}</h1><p>Slogan of thematic</p>
+                    <h1>{{ user.typeAttestation.name }}</h1>
+                    <p>
+                        {% for flashMessage in app.session.flashbag.get('error') %}
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                ×</button>
+                            <span class="glyphicon glyphicon-hand-right"></span> <strong>Message d'Erreur</strong>
+                            <hr class="message-inner-separator">
+                        {{ flashMessage }}
+                         </div>
+                        {% endfor %}
+                    </p>
                 </div>
-                <form role="form" id="form-buscar">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input id="1" class="form-control" type="text" name="search" placeholder="Numéro matricule..." required/>
-                            <span class="input-group-btn">
-                             <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search" aria-hidden="true"></i>Chercher</button>
+                {{ form_start(form, {'attr' : {'id' : 'form-buscar'}}) }}
+                {{ form_label(form.matricule) }}
+                {{ form_errors(form.matricule) }}
+                <div class="form-group">
+                    <div class="input-group">
+                        {{ form_widget(form.matricule, {'attr' : {'placeholder' : 'Numéro matricule...'}, 'required': true} ) }}
+                        <span class="input-group-btn">
+                             <button formtarget="_blank" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-print" aria-hidden="true"></i>Imprimer</button>
                             </span>
-                        </div>
                     </div>
-                </form>
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>

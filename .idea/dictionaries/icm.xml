@@ -7,6 +7,7 @@
       <w>choisir</w>
       <w>datatable</w>
       <w>datatables</w>
+      <w>dompdf</w>
       <w>employé</w>
       <w>employés</w>
       <w>enregistrer</w>
@@ -18,8 +19,10 @@
       <w>nullable</w>
       <w>numéro</w>
       <w>revenu</w>
+      <w>salaire</w>
       <w>sgdatatables</w>
       <w>supprimer</w>
+      <w>typeattestation</w>
       <w>utilisateur</w>
     </words>
   </dictionary>

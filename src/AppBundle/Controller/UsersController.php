@@ -10,6 +10,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class UsersController
+ * @package AppBundle\Controller
+ * @Security("is_fully_authenticated()")
+ * @Security("has_role('ROLE_ADMIN')")
+ *
+ */
 class UsersController extends Controller
 {
 	/**

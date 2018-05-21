@@ -15,6 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Hackzilla\PasswordGenerator\Generator\ComputerPasswordGenerator;
 
+/**
+ * Class RegistreController
+ * @package AppBundle\Controller
+ * @Security("is_fully_authenticated()")
+ */
 class RegistreController extends Controller
 {
 	/**

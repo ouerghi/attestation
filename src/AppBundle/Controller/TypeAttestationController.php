@@ -3,14 +3,16 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\TypeAttestation;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Typeattestation controller.
- *
  * @Route("typeattestation")
+ * @Security("is_fully_authenticated()")
+ * @Security("has_role('ROLE_ADMIN')")
  */
 class TypeAttestationController extends Controller
 {
