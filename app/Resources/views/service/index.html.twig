@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Services list</h1>
-
-    <table>
+    <div class="row">
+        <h5>>Liste Services</h5>
+        <a href="{{ path('service_new') }}" rel="tooltip" title="Ajouter service" class="btn btn-success pull-right" role="button">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter un service
+        </a>
+    </div>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom service</th>
                 <th>Code</th>
                 <th>Actions</th>
             </tr>
@@ -19,23 +23,12 @@
                 <td>{{ service.name }}</td>
                 <td>{{ service.code }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('service_show', { 'id': service.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('service_edit', { 'id': service.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('service_new') }}">Create a new service</a>
-        </li>
-    </ul>
 {% endblock %}

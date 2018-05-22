@@ -1,16 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Typeattestation creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
+    <h1>attestation creation</h1>
+    <ul class="pull-right">
         <li>
-            <a href="{{ path('typeattestation_index') }}">Back to the list</a>
+            <a class="btn btn-danger" href="{{ path('typeattestation_index') }}">Retour</a>
         </li>
     </ul>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary" type="submit" > Ajouter</button>
+    {{ form_end(form) }}
 {% endblock %}

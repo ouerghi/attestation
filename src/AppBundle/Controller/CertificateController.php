@@ -25,7 +25,7 @@ class CertificateController extends Controller
 	/**
 	 * @Route("new-certificate" ,name="new_certificate")
 	 * @param Request $request
-	 *
+	 *@Security("has_role('ROLE_USER')")
 	 * @return Response
 	 */
     public function indexAction(Request $request)
@@ -77,7 +77,7 @@ class CertificateController extends Controller
 	/**
 	 * @Route("/print-certificate/{id}", name="print_certificate")
 	 * @param $id
-	 *
+	 *@Security("has_role('ROLE_USER')")
 	 * @return void
 	 */
     public function domPDF($id)

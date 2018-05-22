@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Typeattestation edit</h1>
+    <h1>Modifier attestation </h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
+    <ul class="pull-right">
         <li>
-            <a href="{{ path('typeattestation_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a class="btn btn-info" href="{{ path('typeattestation_index') }}">Retour</a>
         </li>
     </ul>
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <button type="submit" class="btn btn-success">Modifier</button>
+    {{ form_end(edit_form) }}
+    <hr>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    {{ form_end(delete_form) }}
 {% endblock %}

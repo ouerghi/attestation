@@ -6,7 +6,9 @@ use AppBundle\Entity\Employee;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Employee controller.
@@ -16,6 +18,52 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class EmployeeController extends Controller
 {
+	/**
+	 * @Route("/list-demand", name="list_demand")
+	 * @Security("has_role('ROLE_USER')")
+	 */
+	public function listDemand()
+	{
+		$token = $this->get('security.token_storage')->getToken();
+		$user = $token->getUser();
+		$service = $user->getService()->getId();
+		$attestation = $user->getTypeAttestation()->getId();
+		$em = $this->getDoctrine()->getManager();
+		$demand = $em->getRepository('AppBundle:Demand')->findByService($service, $attestation);
+
+		return $this->render('employee/list-demand.html.twig', array(
+			'demand' => $demand
+		));
+	}
+
+	/**
+	 * @param Request $request
+	 * @param $id
+	 * @Route("/state/{id}", options={"expose":true} ,name="state")
+	 * @Method("POST")
+	 *
+	 * @return JsonResponse
+	 */
+	public function setState(Request $request,$id)
+	{
+		$ok = false;
+		if ($request->isXmlHttpRequest() && $request->isMethod('post'))
+		{
+			$token = $this->get('security.token_storage')->getToken();
+			$user = $token->getUser();
+			$em = $this->getDoctrine()->getManager();
+			$demand = $em->getRepository('AppBundle:Demand')->find($id);
+			$demand->setState(true);
+			$demand->setUser($user);
+			$demand->setOk();
+			$em->persist($demand);
+			$em->flush();
+			$ok =true;
+		}
+			return new JsonResponse($ok);
+
+
+	}
 
 	/**
 	 * Finds and displays a employee entity.
@@ -23,6 +71,7 @@ class EmployeeController extends Controller
 	 * @Route("/{id}", name="employee_show")
 	 * @Method("GET")
 	 * @param Employee $employee
+	 * @Security("has_role('ROLE_ADMIN')")
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
@@ -43,6 +92,7 @@ class EmployeeController extends Controller
 	 * @Method({"GET", "POST"})
 	 * @param Request $request
 	 * @param Employee $employee
+	 * @Security("has_role('ROLE_ADMIN')")
 	 *
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
 	 */
@@ -72,7 +122,7 @@ class EmployeeController extends Controller
 	 * @Method("DELETE")
 	 * @param Request $request
 	 * @param Employee $employee
-	 *
+	 *@Security("has_role('ROLE_ADMIN')")
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
 	 */
     public function deleteAction(Request $request, Employee $employee)
@@ -105,3 +155,4 @@ class EmployeeController extends Controller
         ;
     }
 }
+

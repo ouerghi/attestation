@@ -3,34 +3,33 @@
 {% block body %}
     <h1>Grade</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ grade.id }}</td>
-            </tr>
-            <tr>
-                <th>Codeg</th>
-                <td>{{ grade.codeG }}</td>
-            </tr>
-            <tr>
-                <th>Libelleg</th>
-                <td>{{ grade.libelleG }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('grade_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('grade_edit', { 'id': grade.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+  <div class="row">
+      <div class="col-md-6 ">
+          <div class="pull-right" style="padding: 10px">
+              <a class="btn btn-info" href="{{ path('grade_index') }}"><i class="fa fa-arrow-left"></i></a>
+              <a class="btn btn-success" href="{{ path('grade_edit', { 'id': grade.id }) }}"><i class="fa fa-pencil"></i></a>
+          </div>
+          <table class="table">
+              <tbody>
+              <tr>
+                  <th>Id</th>
+                  <td>{{ grade.id }}</td>
+              </tr>
+              <tr>
+                  <th>Code grade</th>
+                  <td>{{ grade.codeG }}</td>
+              </tr>
+              <tr>
+                  <th>Libelle  grade</th>
+                  <td>{{ grade.libelleG }}</td>
+              </tr>
+              </tbody>
+          </table>
+         <div class="pull-right">
+             {{ form_start(delete_form) }}
+             <button type="submit" class="btn btn-danger">Supprimer</button>
+             {{ form_end(delete_form) }}
+         </div>
+      </div>
+  </div>
 {% endblock %}

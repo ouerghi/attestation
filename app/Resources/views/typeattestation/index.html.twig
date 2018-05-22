@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Typeattestations list</h1>
-
-    <table>
+    <div class="row">
+        <h5>>Liste attestation</h5>
+        <a href="{{ path('typeattestation_new') }}" rel="tooltip" title="Ajouter attestation" class="btn btn-success pull-right" role="button">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter une attestation
+        </a>
+    </div>
+    <table class="table table-condensed">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom </th>
                 <th>Description</th>
                 <th>Code</th>
                 <th>Actions</th>
@@ -18,26 +22,15 @@
             <tr>
                 <td><a href="{{ path('typeattestation_show', { 'id': typeAttestation.id }) }}">{{ typeAttestation.id }}</a></td>
                 <td>{{ typeAttestation.name }}</td>
-                <td>{{ typeAttestation.description }}</td>
+                <td style="width: 65%">{{ typeAttestation.description }}</td>
                 <td>{{ typeAttestation.code }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('typeattestation_show', { 'id': typeAttestation.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('typeattestation_edit', { 'id': typeAttestation.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('typeattestation_show', { 'id': typeAttestation.id }) }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('typeattestation_edit', { 'id': typeAttestation.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('typeattestation_new') }}">Create a new typeAttestation</a>
-        </li>
-    </ul>
 {% endblock %}

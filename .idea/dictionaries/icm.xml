@@ -2,15 +2,20 @@
   <dictionary name="icm">
     <words>
       <w>adresse</w>
+      <w>ajout</w>
       <w>ajouter</w>
       <w>chercher</w>
       <w>choisir</w>
       <w>datatable</w>
       <w>datatables</w>
+      <w>demande</w>
       <w>dompdf</w>
       <w>employé</w>
       <w>employés</w>
       <w>enregistrer</w>
+      <w>imprimer</w>
+      <w>libelle</w>
+      <w>liste</w>
       <w>listner</w>
       <w>matricule</w>
       <w>maxlength</w>
@@ -18,6 +23,7 @@
       <w>montant</w>
       <w>nullable</w>
       <w>numéro</w>
+      <w>retour</w>
       <w>revenu</w>
       <w>salaire</w>
       <w>sgdatatables</w>

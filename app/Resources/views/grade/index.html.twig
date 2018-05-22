@@ -4,46 +4,37 @@
 {% block body %}
 
     <div class="container">
-
         <div class="row">
-            <div class="col-md-6 col-md-offset-2">
-                    <h1>Grades list</h1>
-
-                    <table class="table">
-                        <thead>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <h5>>Liste Grades</h5>
+                    <a href="{{ path('grade_new') }}" rel="tooltip" title="Ajouter employé" class="btn btn-success pull-right" role="button">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter un grade
+                    </a>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Code grade</th>
+                        <th>Libelle grade</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for grade in grades %}
                         <tr>
-                            <th>Id</th>
-                            <th>Codeg</th>
-                            <th>Libelleg</th>
-                            <th>Actions</th>
+                            <td><a href="{{ path('grade_show', { 'id': grade.id }) }}">{{ grade.id }}</a></td>
+                            <td>{{ grade.codeG }}</td>
+                            <td>{{ grade.libelleG }}</td>
+                            <td>
+                                <a href="{{ path('grade_show', { 'id': grade.id }) }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+                                <a href="{{ path('grade_edit', { 'id': grade.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                            </td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        {% for grade in grades %}
-                            <tr>
-                                <td><a href="{{ path('grade_show', { 'id': grade.id }) }}">{{ grade.id }}</a></td>
-                                <td>{{ grade.codeG }}</td>
-                                <td>{{ grade.libelleG }}</td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            <a href="{{ path('grade_show', { 'id': grade.id }) }}">show</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('grade_edit', { 'id': grade.id }) }}">edit</a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-
-                    <ul>
-                        <li>
-                            <a href="{{ path('grade_new') }}">Create a new grade</a>
-                        </li>
-                    </ul>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

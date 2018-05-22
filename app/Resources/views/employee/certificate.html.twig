@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="row" style="margin: 80px 10px 10px 10px">
+        <h3>Liste de demande d'attestation</h3>
+        <div class="row">
+            <div class="col-md-10">
+                <table class="table table-hover" >
+                    <tr >
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Matricule</th>
+                        <th>Service</th>
+                        <th>Attestation</th>
+                        <th>Date demande</th>
+                        <th>Date traitement</th>
+                        <td>Etat OK</td>
+                    </tr>
+                    {% for demand in demand %}
+                        <tr class="{{ demand.state == true ? 'success' : 'danger' }}">
+                            <td>{{ demand.id }}</td>
+                            <td>{{ demand.employee.name }}</td>
+                            <td>{{ demand.employee.lastName }}</td>
+                            <td>{{ demand.employee.matricule }}</td>
+                            <td>{{ demand.employee.service.name }}</td>
+                            <td>{{ demand.typeAttestation.name }}</td>
+                            <td>{{ demand.date| date("m/d/Y H:m", "Africa/Tunis") }}</td>
+                            <td>
+                                {% if demand.ok is null %}
+                               ----
+                                {% else %}
+                                    {{ demand.ok | date("m/d/Y H:m") }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span style="font-size: 100% !important" class="label label-{{ demand.state == true ? 'success' : 'danger' }}">{{ demand.state == true ? 'Traité' : 'Non traité' }}</span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Transtu Le : <small> {{ "now"|date("m/d/Y") }}</small></h4>
+        </div>
+        <div class="col-md-offset-2 col-md-4">
+           <h3>Espace de demande d'attestation</h3>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 8%;">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+                <p>
+                    {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                            ×</button>
+                        <span class="glyphicon glyphicon-hand-right"></span> <strong>{{ label }}</strong>
+                        <hr class="message-inner-separator">
+                        {{ message }}
+                </div>
+                {% endfor %}
+                {% endfor %}
+                </p>
+                {{ form_start(form, {'attr' : {'id' : 'form-buscar'}}) }}
+                <div class="form-group has-feedback">
+                    {{ form_label(form.typeAttestation) }}
+                    {{ form_errors(form.typeAttestation) }}
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-arrow-circle-o-up"></i></span>
+                        {{ form_widget(form.typeAttestation) }}
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                {{ form_label(form.matricule) }}
+                {{ form_errors(form.matricule) }}
+                <div class="form-group">
+                    <div class="input-group">
+                        {{ form_widget(form.matricule, {'attr' : {'placeholder' : 'Numéro matricule...'}, 'required': true} ) }}
+                        <span class="input-group-btn">
+                             <button  class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-collapse-up" aria-hidden="true"></i>Demander</button>
+                            </span>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

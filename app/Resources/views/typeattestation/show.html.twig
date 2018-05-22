@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Typeattestation</h1>
-
-    <table>
+<div class="row">
+    <div class="col-md-6 ">
+        <div class="pull-right" style="padding: 10px">
+            <a class="btn btn-info" href="{{ path('typeattestation_index') }}"><i class="fa fa-arrow-left"></i></a>
+            <a class="btn btn-success" href="{{ path('typeattestation_edit', { 'id': typeAttestation.id }) }}"><i class="fa fa-pencil"></i></a>
+        </div>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -24,17 +28,11 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('typeattestation_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('typeattestation_edit', { 'id': typeAttestation.id }) }}">Edit</a>
-        </li>
-        <li>
+        <div class="pull-right">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <button type="submit" class="btn btn-danger">Supprimer</button>
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}

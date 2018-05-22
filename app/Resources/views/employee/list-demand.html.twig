@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="row" style="margin: 80px 10px 10px 10px">
+      <h3>Liste de demande d'attestation</h3>
+        <div class="row">
+            <div class="col-md-10">
+                <div id="certificate"  class=" alert alert-success" role="alert">
+                    <strong>Succés!</strong> Opération de mise à jour éffectué avec succés.
+                </div>
+                <table class="table table-hover" >
+                    <tr >
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Matricule</th>
+                        <th>Service</th>
+                        <th>Attestation</th>
+                        <th>Date</th>
+                        <th>Imprimer</th>
+                        <td>Etat OK</td>
+                    </tr>
+                    {% for demand in demand %}
+                        <tr class="{{ demand.state == true ? 'success' : 'danger' }}">
+                            <td>{{ demand.id }}</td>
+                            <td>{{ demand.employee.name }}</td>
+                            <td>{{ demand.employee.lastName }}</td>
+                            <td>{{ demand.employee.matricule }}</td>
+                            <td>{{ demand.employee.service.name }}</td>
+                            <td>{{ demand.typeAttestation.name }}</td>
+                            <td>{{ demand.date | date("m/d/Y H:m", "Africa/Tunis") }}</td>
+                            <td>
+                                <a target="_blank" href="{{ path('print_certificate', {'id' : demand.employee.id}) }}" class="text-success"><i class="fa fa-print" aria-hidden="true"></i></a>
+                            </td>
+                            <td>
+                                <a class="btn btn-{{ demand.state == true ? 'success disabled' : 'danger' }} " id="state" onclick="state({{ demand.id }})"><i class="fa fa-{{ demand.state == true ? 'check' : 'ban' }}" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let $alert =$( "#certificate" );
+        $alert.hide();
+       function state (id) {
+           $(document).trigger('ready');
+           let url = Routing.generate('state', { id : id});
+           $.ajax({
+               method:'post',
+               url: url,
+               success: function (data) {
+                  if (data ===true)
+                  {
+                      $alert.show();
+                      setTimeout(function(){
+                          location.reload();
+                      }, 2000);
+                  }else {
+                      $alert.hide();
+                  }
+               }
+           })
+       }
+    </script>
+{% endblock %}

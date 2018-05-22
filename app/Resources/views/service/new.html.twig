@@ -2,15 +2,13 @@
 
 {% block body %}
     <h1>Service creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
+    <ul class="pull-right">
         <li>
-            <a href="{{ path('service_index') }}">Back to the list</a>
+            <a class="btn btn-danger" href="{{ path('service_index') }}">Retour</a>
         </li>
     </ul>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary" type="submit" > Ajouter</button>
+    {{ form_end(form) }}
 {% endblock %}
