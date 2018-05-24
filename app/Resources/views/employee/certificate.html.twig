@@ -3,6 +3,20 @@
 
     <div class="row" style="margin: 80px 10px 10px 10px">
         <h3>Liste de demande d'attestation</h3>
+       <div class="col-md-offset-6 col-md-4">
+           {{ form_start(form, {'attr' : {'id' : 'form-buscar'}}) }}
+           {{ form_label(form.matricule) }}
+           {{ form_errors(form.matricule) }}
+           <div class="form-group">
+               <div class="input-group">
+                   {{ form_widget(form.matricule) }}
+                   <span class="input-group-btn">
+                    <button  class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search" aria-hidden="true"></i>Rechercher</button>
+                </span>
+               </div>
+           </div>
+           {{ form_end(form) }}
+       </div>
         <div class="row">
             <div class="col-md-10">
                 <table class="table table-hover" >

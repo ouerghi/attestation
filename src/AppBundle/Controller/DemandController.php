@@ -6,6 +6,7 @@ use AppBundle\Entity\Demand;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Length;
@@ -74,13 +75,35 @@ class DemandController extends Controller
 
 	/**
 	 * @Route("/certificate", name="certificate")
+	 * @param Request $request
+	 *
+	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-    public function listDemandEmployee()
+    public function listDemandEmployee(Request $request)
     {
-    	$em = $this->getDoctrine()->getManager();
-    	$certificate = $em->getRepository('AppBundle:Demand')->findAll();
+	    $em = $this->getDoctrine()->getManager();
+	    $certificate = $em->getRepository('AppBundle:Demand')->findAll();
+    	$form = $this->createFormBuilder()
+		    ->add('matricule', TextType::class, array(
+			    'label' => 'Matricule',
+			    'attr' => array('placeholder' => 'Matricule'),
+			    'constraints' => array(
+				    new NotBlank(),
+				    new Length(array('min' => 8, 'max' => 8) )
+			    )
+		    ))
+		    ->getForm()
+		    ;
+    	$form->handleRequest($request);
+    	if ($form->isSubmitted() && $form->isValid())
+	    {
+		    $data = $form->getData();
+		    $matricule = $data['matricule'];
+		    $certificate = $em->getRepository('AppBundle:Demand')->findByMatricule($matricule);
+	    }
     	return $this->render('employee/certificate.html.twig', array(
-    		'demand' => $certificate
+    		'demand' => $certificate,
+		    'form'   => $form->createView()
 	    ));
     }
 

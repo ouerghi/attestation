@@ -24,4 +24,15 @@ class DemandRepository extends EntityRepository
 			;
 		return $qb;
 	}
+	public function findByMatricule($matricule)
+	{
+		$qb = $this->createQueryBuilder('d')
+			->join('d.employee', 'e')
+			->where('e.matricule = :matricule')
+			->setParameter('matricule', $matricule)
+			->getQuery()
+			->getResult()
+			;
+		return $qb;
+	}
 }
