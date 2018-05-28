@@ -42,6 +42,17 @@ services:
         autowire: true
         autoconfigure: false
 
+    app.datatable.user:
+        class: AppBundle\Datatables\UserDatatable
+        parent: sg_datatables.datatable.abstract
+        public: true
+        autowire: true
+        autoconfigure: false
+
     redirect.after.login:
             class: AppBundle\Listener\AfterLoginRedirection
             arguments: ['@router']
+
+
+
+

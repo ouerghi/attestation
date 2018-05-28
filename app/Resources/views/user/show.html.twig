@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employee</h1>
+    <a class="pull-right" href="{{ path('user_index') }}"><i class="fa fa-arrow-circle-left" style="font-size:28px;"></i></a>
+
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ employee.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ employee.name }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ employee.email }}</td>
+        </tr>
+        <tr>
+            <th>Attestation</th>
+            <td>{{ employee.typeAttestation.name }}</td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ employee.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Matricule</th>
+            <td>{{ employee.matricule }}</td>
+        </tr>
+        <tr>
+            <th>Cin</th>
+            <td>{{ employee.cin }}</td>
+        </tr>
+        <tr>
+            <th>Grade</th>
+            <td>{{ employee.grade.libelleG }}</td>
+        </tr>
+        <tr>
+            <th>Nationnalité</th>
+            <td>{{ employee.nationality }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ employee.status }}</td>
+        </tr>
+        <tr>
+            <th>Addresse</th>
+            <td>{{ employee.address }}</td>
+        </tr>
+        <tr>
+            <th>Mission</th>
+            <td>{{ employee.mission }}</td>
+        </tr>
+        <tr>
+            <th>Nombre d'enfant</th>
+            <td>{{ employee.numberOfChildren }}</td>
+        </tr>
+        <tr>
+            <th>Revenu imposable</th>
+            <td>{{ employee.revenuImposable }}</td>
+        </tr>
+        <tr>
+            <th>Privilege</th>
+            <td>{{ employee.privilege }}</td>
+        </tr>
+        <tr>
+            <th>Workingduration</th>
+            <td>{{ employee.workingDuration }}</td>
+        </tr>
+        <tr>
+            <th>Datecreation</th>
+            <td>{% if employee.dateCreation %}{{ employee.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+        </tr>
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+        {{ form_start(delete_form) }}
+        <a class="btn btn-success" href="{{ path('user_edit', { 'id': employee.id }) }}">Modifier</a>
+        <input class="btn btn-danger" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    {% endif %}
+{% endblock %}

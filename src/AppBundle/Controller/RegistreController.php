@@ -80,7 +80,7 @@ class RegistreController extends Controller
 	/**
 	 * @Route("/personnel", name="personnel")
 	 * @param Request $request *
-	 *
+	 * @Security("has_role('ROLE_ADMIN')")
 	 * @return Response
 	 */
     public function registerPersonnel( Request $request)
@@ -118,36 +118,6 @@ class RegistreController extends Controller
             'users' => $users,
         ]);
     }
-
-	/**
-	 * @Route("/mail", name="mail")
-	 * @param \Swift_Mailer $mailer
-	 *
-	 * @return Response
-	 */
-    public function test(\Swift_Mailer $mailer)
-   {
-	   $generator = new ComputerPasswordGenerator();
-	   $generator
-		   ->setUppercase()
-		   ->setLowercase()
-		   ->setNumbers()
-		   ->setSymbols(false)
-		   ->setLength(12);
-
-	   $password = $generator->generatePasswords(1);
-
-	   $message = (new \Swift_Message('Hello Email'))
-		   ->setFrom('attestation.isi@gmail.com')
-		   ->setTo('ouerghimahdi@gmail.com')
-		   ->setBody($password[0],'text/html');
-	    if ($mailer->send($message))
-	    {
-	    	return new Response('ok');
-	    }else{
-	    	return new Response('no no ono ');
-	    }
-   }
 
 
 

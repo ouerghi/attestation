@@ -6,16 +6,16 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <div class="container-fluid">
         <div class="row">
-               <div class="col-md-12">
-                  <div class="row">
-                      <h2>Liste des Agents</h2>
-                          <a href="{{ path('register') }}" rel="tooltip" title="Ajouter employé" class="btn btn-success pull-right" role="button">
-                              <span class="glyphicon glyphicon-user"></span> Ajouter un Agent
-                          </a>
-                  </div>
-                   <hr>
-                   {{ sg_datatables_render(datatable) }}
-               </div>
+            <div class="col-md-offset-1 col-md-10">
+                <div class="row">
+                    <h2>Liste des Employés</h2>
+                    <a href="{{ path('personnel') }}" rel="tooltip" title="Ajouter employé" class="btn btn-success pull-right" role="button">
+                        <span class="glyphicon glyphicon-user"></span> Ajouter un Employé
+                    </a>
+                </div>
+                <hr>
+                {{ sg_datatables_render(datatable) }}
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -29,6 +29,6 @@
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.1/release/featherlight.min.js"></script>
     <script src="{{ asset('bundles/sgdatatables/js/pipeline.js') }}"></script>
     <script>
-        $('#sg-datatables-user_datatable').addClass('table');
+        $('#sg-datatables-employee_datatable').addClass('table');
     </script>
 {% endblock %}
