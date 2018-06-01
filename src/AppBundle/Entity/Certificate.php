@@ -21,11 +21,11 @@ class Certificate
      */
     private $id;
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Employee" ,cascade={"remove"})
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Employee" ,cascade={"persist", "remove"})
 	 */
     private $employee;
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"remove"})
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist", "remove"})
 	 */
     private $user;
 

@@ -11,7 +11,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
- * @UniqueEntity("username", message="the username is already exist")
+ * @UniqueEntity("username", message="le nom d'utilisateur existe déjà")
+ * @UniqueEntity("email", message="l'email existe déjà")
 
  */
 class User extends Employee implements UserInterface, \Serializable
@@ -34,7 +35,7 @@ class User extends Employee implements UserInterface, \Serializable
     private $username;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeAttestation", cascade={"ALL"})
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeAttestation")
 	 */
     private $typeAttestation;
 
@@ -48,7 +49,7 @@ class User extends Employee implements UserInterface, \Serializable
 	/**
 	 * @param mixed $typeAttestation
 	 */
-	public function setTypeAttestation( $typeAttestation ) {
+	public function setTypeAttestation( TypeAttestation $typeAttestation ) {
 		$this->typeAttestation = $typeAttestation;
 	}
 

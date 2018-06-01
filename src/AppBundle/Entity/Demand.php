@@ -24,21 +24,21 @@ class Demand
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeAttestation", cascade={"ALL"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeAttestation", cascade={"remove"})
      */
     private $typeAttestation;
 
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Employee", cascade={"ALL"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Employee", cascade={"remove"})
      */
     private $employee;
 
 	/**
 	 * @var string
 	 *
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"ALL"})
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"remove"})
 	 */
 	private $user;
 

@@ -9,7 +9,7 @@ security:
          attestation_provider:
               entity:
                   class:    AppBundle:User
-                  property: email
+                  property: username
     role_hierarchy:
         ROLE_USER:        ROLE_USER
         ROLE_ADMIN:       ROLE_ADMIN

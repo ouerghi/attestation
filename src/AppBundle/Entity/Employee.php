@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Employee
@@ -45,7 +46,8 @@ use Doctrine\ORM\Mapping\InheritanceType;
 	}
 
 	 /**
-	  * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Service", cascade={"ALL"})
+	  * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Service")
+	  * @Assert\NotBlank()
 	  */
 	 protected $service;
 
@@ -66,6 +68,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
 	/**
 	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Grade")
 	 * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")
+	 * @Assert\NotBlank()
 	 */
     protected $grade;
 
@@ -87,6 +90,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $name;
 
@@ -94,6 +98,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $lastName;
 
@@ -101,6 +106,8 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="matricule", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="8", max="8", exactMessage="la longueur du matricule doit etre égale à 8")
      */
     protected $matricule;
 
@@ -108,6 +115,8 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="cin", type="integer", length=255, unique=true)
+     *  @Assert\NotBlank()
+     * @Assert\Length(min="8", max="8", exactMessage="la longueur du cin doit etre égale à 8")
      */
     protected $cin;
 
@@ -115,6 +124,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="nationality", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $nationality;
 
@@ -122,6 +132,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $status;
 
@@ -129,6 +140,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $address;
 	 /**

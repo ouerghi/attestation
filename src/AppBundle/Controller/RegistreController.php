@@ -18,7 +18,7 @@ use Hackzilla\PasswordGenerator\Generator\ComputerPasswordGenerator;
 /**
  * Class RegistreController
  * @package AppBundle\Controller
- * @Security("is_fully_authenticated()")
+
  */
 class RegistreController extends Controller
 {
@@ -27,7 +27,7 @@ class RegistreController extends Controller
 	 * @param Request $request
 	 * @param UserPasswordEncoderInterface $password
 	 * @param \Swift_Mailer $mailer
-	 * @Security("has_role('ROLE_ADMIN')")
+
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
     public function register( Request $request, UserPasswordEncoderInterface $password, \Swift_Mailer $mailer)
@@ -51,6 +51,7 @@ class RegistreController extends Controller
           $passwordEncrypted = $password->encodePassword($user,$password_generated[0]);
           $user->setPassword($passwordEncrypted);
           $email = $user->getEmail();
+          $login = $user->getUsername();
 	        $message = (new \Swift_Message('Donées Confidentiel'))
 		        ->setFrom('attestation.isi@gmail.com')
 		        ->setTo($email)
@@ -58,7 +59,7 @@ class RegistreController extends Controller
 			        $this->renderView(
 			        // app/Resources/views/Emails/registration.html.twig
 				        'Emails/registration.html.twig',
-				        array('password_generated' => $password_generated[0],'email' => $email)
+				        array('password_generated' => $password_generated[0],'login' => $login)
 			        ),
 			        'text/html'
 		        );
@@ -68,7 +69,7 @@ class RegistreController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('user_index');
         }
         return $this->render('default/register.html.twig', array(
             'user' => $user,
