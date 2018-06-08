@@ -87,14 +87,14 @@ class CertificateController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$employee = $em->getRepository('AppBundle:Employee')->find($id);
 
-	    if ($user->getTypeAttestation()->getId() === 1 )
+	    if ($user->getTypeAttestation()->getCode() == 10 )
 	    {
 		    $template = $this->renderView( 'Certificate/salaire.html.twig', array(
 			    'employee' => $employee,
 			    'user' => $user
 		    ));
 	    }
-    	if ($user->getTypeAttestation()->getId() === 2 )
+    	if ($user->getTypeAttestation()->getCode() == 20 )
 	    {
 		    $template = $this->renderView('Certificate/presence.html.twig', array(
 			    'employee' => $employee,

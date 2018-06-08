@@ -27,7 +27,8 @@ use Symfony\Component\Validator\Constraints as Assert;
      */
     protected $id;
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"remove"})
+	 * @ORM\JoinColumn(onDelete="SET NULL")
 	 */
 	private $user;
 
